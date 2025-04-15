@@ -10,7 +10,7 @@ source:
   sha256: 4fe7d0ac8fc171045be623aba3e2a8f613f8682731f9153bb2e40ece16b9bbab
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv --no-build-isolation
   noarch: python
 
@@ -20,13 +20,13 @@ requirements:
     - pip
     - flit-core >=3.7
   run:
-    - python 3.9
+    - python >=3.9
 
 test:
   requires:
     - pip
     # This is a circular dependency b/c sphinx depends on this package now :-/
-    - sphinx >=2
+    - sphinx >=5
   commands:
     - pip check
   imports:
